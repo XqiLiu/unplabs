@@ -1,0 +1,6 @@
+/home/thelinux/lab1/build/CMakeFiles/client.dir
+/home/thelinux/lab1/build/CMakeFiles/server.dir
+/home/thelinux/lab1/build/CMakeFiles/testserver.dir
+/home/thelinux/lab1/build/CMakeFiles/testclient.dir
+/home/thelinux/lab1/build/CMakeFiles/edit_cache.dir
+/home/thelinux/lab1/build/CMakeFiles/rebuild_cache.dir
