@@ -1,4 +1,5 @@
 #include "Socket.h"
+
 /*class Socket{
 private:
     const int fd_;
@@ -22,6 +23,8 @@ int createListenFd()
     listenfd = socket(AF_INET,SOCK_STREAM,0);
     int opt=1;
     setsockopt(listenfd,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt));
+    setsockopt(listenfd,SOL_SOCKET,TCP_NODELAY,&opt,sizeof(opt));
+    // fcntl(, F_SETFL, fcntl())
     if (listenfd <0 )
     {
         perror("socket error");

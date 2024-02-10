@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/testclient.dir/testclient.cpp.o -o testclient 

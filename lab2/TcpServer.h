@@ -5,7 +5,8 @@
 class TcpServer :public Socket
 {
 private:
-
+    int clientsock_,serversock_;
+    InetAddress clientaddr_,serveraddr_;
 public:
     TcpServer(InetAddress serveraddr);
     ~TcpServer();
@@ -15,8 +16,11 @@ public:
 
     //virtual
     bool send(const std::string &buffer);
+    bool send(const std::string &buffer, int fd);
     bool recv(std::string &buffer,const size_t maxlen);
+    bool recv(std::string &buffer,const size_t maxlen,int fd);
+    
     void closeconn();
-    int clientsock_,serversock_;
-    InetAddress clientaddr_,serveraddr_;
+    int getServSocket();
+    int getCliSocket();
 };

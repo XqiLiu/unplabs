@@ -7,8 +7,12 @@
 #include <arpa/inet.h>
 #include<sys/socket.h>
 #include<sys/types.h>
+#include<sys/epoll.h>
+#include<sys/fcntl.h>
+#include<unistd.h>
+#include<arpa/inet.h>
+#include<netinet/tcp.h>
 #include "InetAddress.h"
-// 
 int createListenFd();
 int createClientFd();
 class Socket{

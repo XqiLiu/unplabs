@@ -82,7 +82,42 @@ bool TcpServer::send(const std::string &buffer)
     return true;
 
 }
+bool TcpServer::send(const std::string &buffer, int fd)
+{
+    /*        if( (iret=send(clientsock->getFd(),buffer,strlen(buffer),0)) <=0 )
+        {
+            perror("send error");
 
+        }
+        std::cout <<"发送："<<buffer<<std::endl ;*/
+    if (TcpServer::clientsock_==-1)
+        return false;
+    if (::send(fd, buffer.data(), buffer.size(),0)<=0 )
+    {
+        return false;
+    }
+    return true;
+
+}
+bool TcpServer::recv(std::string &buffer,const size_t maxlen,int fd)
+{
+    buffer.clear();
+        // memset(buffer,0 ,sizeof(buffer));
+        // if ( (iret=recv(clientsock->getFd(),buffer,sizeof(buffer),0)) <=0 )
+        // {
+        //     std::cout <<"iret="<<iret<<std::endl;
+
+        // }
+    buffer.resize(maxlen);
+    int readn=::recv(fd,& buffer[0], buffer.size(),0);
+    if (readn<=0)
+    {   
+        buffer.clear();
+        return false;
+    }    
+    buffer.resize(readn);
+    return true;
+}
 bool TcpServer::recv(std::string &buffer,const size_t maxlen)
 {
     buffer.clear();
@@ -102,7 +137,6 @@ bool TcpServer::recv(std::string &buffer,const size_t maxlen)
     buffer.resize(readn);
     return true;
 }
-
 void TcpServer::closeconn()
 {
     if(TcpServer::clientsock_!=-1)
@@ -113,4 +147,12 @@ void TcpServer::closeconn()
     {
         ::close(TcpServer::serversock_);
     }
+}
+int TcpServer::getServSocket()
+{
+    return serversock_;
+}
+int TcpServer::getCliSocket()
+{
+    return clientsock_;
 }
