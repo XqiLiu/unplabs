@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+project(lab3)
+find_package(OpenSSL REQUIRED)
+add_executable(client client.cpp InetAddress.cpp Socket.cpp TcpClient.cpp)
+target_compile_options(client PRIVATE -fPIC)
+add_executable(server server.cpp InetAddress.cpp Socket.cpp TcpServer.cpp ThreadPool.cpp)
+target_compile_options(server PRIVATE -fPIC)
+target_link_libraries(server OpenSSL::SSL)

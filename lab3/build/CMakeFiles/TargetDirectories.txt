@@ -1,0 +1,4 @@
+/home/thelinux/unplabs/lab3/build/CMakeFiles/client.dir
+/home/thelinux/unplabs/lab3/build/CMakeFiles/server.dir
+/home/thelinux/unplabs/lab3/build/CMakeFiles/edit_cache.dir
+/home/thelinux/unplabs/lab3/build/CMakeFiles/rebuild_cache.dir
